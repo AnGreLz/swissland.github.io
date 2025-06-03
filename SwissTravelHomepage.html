@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwissTravel - Откройте для себя Швейцарию</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Aleo:wght@400;600&family=Ovo:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Заголовок -->
+    <header class="header">
+        <nav class="nav-links">
+            <a href="#tours" class="nav-link">Наши туры</a>
+            <a href="#advantages" class="nav-link">Преимущества</a>
+            <a href="#about" class="nav-link">О нас</a>
+        </nav>
+        <div class="logo">swissland</div>
+        <button class="cta-button" onclick="openTourForm()">
+            <span class="cta-text">В ТУР!</span>
+        </button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Откройте для себя Швейцарию</h1>
+            <p class="hero-description">Погрузитесь в красоту швейцарских Альп и уникальную культуру. Мы предлагаем незабываемые туры, которые подарят вам яркие впечатления и воспоминания на всю жизнь.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('advantages')">
+                    <span class="btn-text">Подобрать</span>
+                </button>
+                <button class="btn-secondary" onclick="openContactForm()">
+                    <span class="btn-text">Заявка</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Приветсвующая страница -->
+    <section class="welcome" id="about">
+        <h2 class="welcome-title">Добро пожаловать в SwissTravel – ваш проводник по Швейцарии!</h2>
+        <p class="welcome-description">Мы – команда профессионалов, которая с любовью организует уникальные туры по Швейцарии. Наша миссия – сделать ваши путешествия незабываемыми, предлагая индивидуальные маршруты и высокий уровень сервиса.</p>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="advantages" id="advantages">
+        <h2 class="advantages-title">Наши преимущества: лучшие предложения для вашего незабываемого отдыха в Швейцарии</h2>
+        <div class="advantages-grid">
+            <div class="advantage-item">
+                <img src="../assets/images/img_4753162_2.png" alt="Индивидуальный подход" class="advantage-icon">
+                <h3 class="advantage-title">Индивидуальный подход к каждому клиенту и его потребностям</h3>
+                <p class="advantage-description">Мы гарантируем лучшие цены на все наши туры и услуги.</p>
+                <a href="#" class="advantage-link" onclick="showAdvantageDetails('individual')">
+                    <span class="advantage-link-text">Узнать</span>
+                    <img src="../assets/images/img_icon_chevronright.svg" alt="Arrow" class="advantage-arrow">
+                </a>
+            </div>
+            <div class="advantage-item">
+                <img src="../assets/images/img_247_1.png" alt="Круглосуточная поддержка" class="advantage-icon">
+                <h3 class="advantage-title">Круглосуточная поддержка для вашего комфорта и безопасности</h3>
+                <p class="advantage-description">Наша команда всегда готова помочь вам в любое время суток.</p>
+                <a href="#" class="advantage-link" onclick="showAdvantageDetails('support')">
+                    <span class="advantage-link-text">Связаться</span>
+                    <img src="../assets/images/img_icon_chevronright.svg" alt="Arrow" class="advantage-arrow">
+                </a>
+            </div>
+            <div class="advantage-item">
+                <img src="../assets/images/img_individual_1.png" alt="Индивидуальные туры" class="advantage-icon">
+                <h3 class="advantage-title">Индивидуальные туры, созданные специально для вас и ваших интересов</h3>
+                <p class="advantage-description">Мы разрабатываем уникальные маршруты, учитывающие ваши предпочтения и желания.</p>
+                <a href="#" class="advantage-link" onclick="showAdvantageDetails('tours')">
+                    <span class="advantage-link-text">Заказать</span>
+                    <img src="../assets/images/img_icon_chevronright.svg" alt="Arrow" class="advantage-arrow">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блог и советы -->
+    <section class="blog" id="tours">
+        <div class="blog-header">
+            <div class="blog-label">Блог</div>
+            <h2 class="blog-title">Полезные советы для путешественников</h2>
+            <p class="blog-subtitle">Узнайте о лучших турах по Швейцарии</p>
+        </div>
+        <div class="blog-grid">
+            <article class="blog-card" onclick="openBlogPost('ski-resorts')">
+                <img src="../assets/images/img_placeholder_image.png" alt="Горнолыжные курорты" class="blog-image">
+                <div class="blog-meta">
+                    <span class="blog-category">Туризм</span>
+                    <span class="blog-read-time">5 мин чтения</span>
+                </div>
+                <h3 class="blog-card-title">Топ-5 горнолыжных курортов Швейцарии</h3>
+                <p class="blog-card-description">Откройте для себя лучшие места для зимнего отдыха в Швейцарии.</p>
+                <a href="#" class="blog-read-more" onclick="event.stopPropagation(); openBlogPost('ski-resorts')">
+                    <span class="blog-read-more-text">Читать далее</span>
+                    <img src="../assets/images/img_icon_chevronright_black_900.svg" alt="Arrow" class="blog-arrow">
+                </a>
+            </article>
+            <article class="blog-card" onclick="openBlogPost('geneva-tours')">
+                <img src="../assets/images/img_placeholder_image_270x405.png" alt="Экскурсии по Женеве" class="blog-image">
+                <div class="blog-meta">
+                    <span class="blog-category">Экскурсии</span>
+                    <span class="blog-read-time">5 мин чтения</span>
+                </div>
+                <h3 class="blog-card-title">Лучшие экскурсии по Женеве</h3>
+                <p class="blog-card-description">Исследуйте культурные сокровища Женевы с нашими уникальными турами.</p>
+                <a href="#" class="blog-read-more" onclick="event.stopPropagation(); openBlogPost('geneva-tours')">
+                    <span class="blog-read-more-text">Читать далее</span>
+                    <img src="../assets/images/img_icon_chevronright_black_900.svg" alt="Arrow" class="blog-arrow">
+                </a>
+            </article>
+            <article class="blog-card" onclick="openBlogPost('chocolate-tours')">
+                <img src="../assets/images/img_placeholder_image_1.png" alt="Шоколадные туры" class="blog-image">
+                <div class="blog-meta">
+                    <span class="blog-category">Гастрономия</span>
+                    <span class="blog-read-time">5 мин чтения</span>
+                </div>
+                <h3 class="blog-card-title">Шоколадные туры по Швейцарии</h3>
+                <p class="blog-card-description">Попробуйте лучшие швейцарские шоколадные деликатесы в нашем туре.</p>
+                <a href="#" class="blog-read-more" onclick="event.stopPropagation(); openBlogPost('chocolate-tours')">
+                    <span class="blog-read-more-text">Читать далее</span>
+                    <img src="../assets/images/img_icon_chevronright_black_900.svg" alt="Arrow" class="blog-arrow">
+                </a>
+            </article>
+        </div>
+        <div class="blog-view-all">
+            <button class="view-all-btn" onclick="showAllBlogs()">
+                <span class="view-all-text">Смотреть все</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials">
+        <div class="testimonials-content">
+            <img src="../assets/images/img_stars_1.png" alt="5 звезд" class="stars">
+            <blockquote class="testimonial-text">"Путешествие с SwissTravel стало для нас настоящим открытием! Каждый момент был наполнен красотой и комфортом."</blockquote>
+            <div class="testimonial-author">
+                <img src="../assets/images/anna.png" alt="Анна Смирнова" class="author-avatar">
+                <div class="author-info">
+                    <div class="author-name">Анна Смирнова</div>
+                    <div class="author-title">Маркетолог, TravelCo</div>
+                </div>
+            </div>
+        </div>
+        <button class="testimonial-nav nav-prev" onclick="previousTestimonial()">
+            <img src="../assets/images/img_icon_leftarrowalt.svg" alt="Previous">
+        </button>
+        <button class="testimonial-nav nav-next" onclick="nextTestimonial()">
+            <img src="../assets/images/img_icon_rightarrowalt.svg" alt="Next">
+        </button>
+        <div class="testimonial-dots">
+            <div class="dot active" onclick="goToTestimonial(0)"></div>
+            <div class="dot" onclick="goToTestimonial(1)"></div>
+        </div>
+    </section>
+
+    <!-- Интерактивная карта -->
+    <section class="map-section">
+        <div class="map-header">
+            <h2 class="map-title">Исследуйте Швейцарию</h2>
+            <p class="map-subtitle">Откройте для себя самые интересные места и маршруты</p>
+        </div>
+        <div class="map-container">
+            <div id="switzerlandMap"></div>
+            <div class="map-locations">
+                <button class="location-btn active" data-lat="46.8182" data-lng="8.2275" data-name="Швейцария">
+                    Вся Швейцария
+                </button>
+                <button class="location-btn" data-lat="46.2044" data-lng="6.1432" data-name="Женева">
+                    Женева
+                </button>
+                <button class="location-btn" data-lat="46.0207" data-lng="7.7491" data-name="Церматт">
+                    Церматт
+                </button>
+                <button class="location-btn" data-lat="46.6863" data-lng="7.8632" data-name="Интерлакен">
+                    Интерлакен
+                </button>
+                <button class="location-btn" data-lat="47.3769" data-lng="8.5417" data-name="Цюрих">
+                    Цюрих
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!--Контактная информация -->
+    <section class="contact-info">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <img src="../assets/images/img_icon_envelope.svg" alt="Email" class="contact-icon">
+                <h3 class="contact-title">Email</h3>
+                <p class="contact-description">Наша почта для получения дополнительной информации по вашим вопросам.</p>
+                <a href="mailto:info@cosmos-switzerland.com" class="contact-link">info@cosmos-switzerland.com</a>
+            </div>
+            <div class="contact-item">
+                <img src="../assets/images/img_icon_phone.svg" alt="Телефон" class="contact-icon">
+                <h3 class="contact-title">Телефон</h3>
+                <p class="contact-description">Телефон для записи в тур или уточнения возникших у вас вопосов.</p>
+                <a href="tel:+41440000000" class="contact-link">+41 (0) 44 000 00 00</a>
+            </div>
+            <div class="contact-item">
+                <img src="../assets/images/img_icon_map.svg" alt="Офис" class="contact-icon">
+                <h3 class="contact-title">Офис</h3>
+                <p class="contact-description">Наш главный офис компании находящийся по адресу:</p>
+                <a href="#" class="contact-link" onclick="openMap()">Zurich, Bahnhofstrasse 10, 8001 Switzerland</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section class="contact-form-section" id="contact">
+        <div class="form-container">
+            <h2 class="form-title">Свяжитесь с нами</h2>
+            <p class="form-subtitle">Заполните форму, чтобы получить больше информации.</p>
+            <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name" class="form-label">Имя</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Сообщение</label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Введите ваше сообщение..." required></textarea>
+                </div>
+                <div class="checkbox-group">
+                    <div class="checkbox" id="termsCheckbox" onclick="toggleCheckbox()"></div>
+                    <label for="termsCheckbox" class="checkbox-label" onclick="toggleCheckbox()">Я принимаю условия</label>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="submit-btn">
+                        <span class="submit-text">Отправить</span>
+                    </button>
+                </div>
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Форма для заявки на тур -->
+    <div class="tour-form-overlay" id="tourForm">
+        <div class="tour-form-container">
+            <button class="close-form" onclick="closeTourForm()">×</button>
+            <h2 class="tour-form-title">Заявка на тур</h2>
+            <p class="tour-form-subtitle">Заполните форму, и мы подберем для вас идеальный тур по Швейцарии</p>
+            <form class="tour-form" id="tourRequestForm" onsubmit="submitTourForm(event)">
+                <div class="form-group">
+                    <label for="tourName" class="form-label">Имя</label>
+                    <input type="text" id="tourName" name="tourName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="tourEmail" class="form-label">Email</label>
+                    <input type="email" id="tourEmail" name="tourEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="tourPhone" class="form-label">Телефон</label>
+                    <input type="tel" id="tourPhone" name="tourPhone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="tourDates" class="form-label">Предпочтительные даты</label>
+                    <input type="text" id="tourDates" name="tourDates" class="form-input" placeholder="Например: Июль 2024">
+                </div>
+                <div class="form-group">
+                    <label for="tourType" class="form-label">Тип тура</label>
+                    <select id="tourType" name="tourType" class="form-input" required>
+                        <option value="">Выберите тип тура</option>
+                        <option value="ski">Горнолыжный тур</option>
+                        <option value="culture">Культурный тур</option>
+                        <option value="gastro">Гастрономический тур</option>
+                        <option value="adventure">Приключенческий тур</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tourComments" class="form-label">Дополнительные пожелания</label>
+                    <textarea id="tourComments" name="tourComments" class="form-textarea" rows="4"></textarea>
+                </div>
+                <div class="checkbox-group">
+                    <div class="checkbox" id="tourTermsCheckbox" onclick="toggleTourCheckbox()"></div>
+                    <label for="tourTermsCheckbox" class="checkbox-label">Я согласен с условиями обработки персональных данных</label>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="submit-btn">
+                        <span class="submit-text">Отправить заявку</span>
+                    </button>
+                </div>
+                <div id="tourFormMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Нижняя часть сайта -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">swissland</div>
+            <nav class="footer-nav">
+                <a href="#" class="footer-link">Ссылка Один</a>
+                <a href="#" class="footer-link">Ссылка Два</a>
+                <a href="#" class="footer-link">Ссылка Три</a>
+                <a href="#" class="footer-link">Ссылка Четыре</a>
+                <a href="#" class="footer-link">Ссылка Пять</a>
+            </nav>
+            <div class="social-links">
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <span class="copyright">© Swissland. Все права защищены.</span>
+            <a href="#" class="footer-bottom-link">Политика конфиденциальности</a>
+            <a href="#" class="footer-bottom-link">Условия обслуживания</a>
+            <a href="#" class="footer-bottom-link">Настройки файлов cookie</a>
+        </div>
+    </footer>
+</body>
+</html>
